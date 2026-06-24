@@ -1,0 +1,27 @@
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cit-logo {
+  transition: transform 0.3s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.logo-wrap:hover .cit-logo {
+  transform: scale(1.03);
+}
+
+.dark-logo {
+  display: none;
+}
+
+[data-theme="dark"] .dark-logo {
+  display: block;
+}
+
+[data-theme="dark"] .light-logo {
+  display: none;
+}

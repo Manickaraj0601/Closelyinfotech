@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ─── COLOR THEME TOKENS ─── */
+:root {
+  --navy: #1E3A6E;
+  --teal: #1B8A8F;
+  --teal-light: #2AABB1;
+  --gold: #C9952A;
+  --gold-light: #E8B84B;
+  --transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+/* DARK MODE (default) */
+[data-theme="dark"] {
+  --bg: #080E1C;
+  --bg2: #0D1628;
+  --bg3: #111E35;
+  --text: #E2EAF8;
+  --muted: rgba(226, 234, 248, 0.55);
+  --border: rgba(255, 255, 255, 0.07);
+  --border2: rgba(255, 255, 255, 0.12);
+  --card-bg: #0D1628;
+  --card-bg2: #111E35;
+  --nav-bg: rgba(8, 14, 28, 0.88);
+  --mob-bg: rgba(8, 14, 28, 0.98);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --input-color: #ffffff;
+  --select-bg: #0D1628;
+  --title-color: #ffffff;
+  --toggle-bg: #1B2A45;
+  --toggle-knob: #E2EAF8;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --grid-line: rgba(27, 138, 143, 0.04);
+  --hero-glow1: rgba(27, 138, 143, 0.22);
+  --hero-glow2: rgba(201, 149, 42, 0.15);
+  --svc-grid-gap: rgba(255, 255, 255, 0.05);
+  --btn-sec-bg: rgba(255, 255, 255, 0.06);
+  --btn-sec-bg-hover: rgba(255, 255, 255, 0.12);
+}
+
+/* LIGHT MODE (white + logo brand colours) */
+[data-theme="light"] {
+  --bg: #FFFFFF;
+  --bg2: #F0F6F6;
+  --bg3: #E8F4F4;
+  --text: #1A2540;
+  --muted: rgba(26, 37, 64, 0.60);
+  --border: rgba(27, 138, 143, 0.15);
+  --border2: rgba(27, 138, 143, 0.30);
+  --card-bg: #FFFFFF;
+  --card-bg2: #EAF5F5;
+  --nav-bg: rgba(255, 255, 255, 0.94);
+  --mob-bg: rgba(255, 255, 255, 0.98);
+  --input-bg: rgba(27, 138, 143, 0.04);
+  --input-border: rgba(27, 138, 143, 0.20);
+  --input-color: #1A2540;
+  --select-bg: #FFFFFF;
+  --title-color: #1E3A6E;
+  --toggle-bg: #D6EEF0;
+  --toggle-knob: #1E3A6E;
+  --shadow: rgba(27, 138, 143, 0.15);
+  --grid-line: rgba(27, 138, 143, 0.06);
+  --hero-glow1: rgba(27, 138, 143, 0.18);
+  --hero-glow2: rgba(201, 149, 42, 0.14);
+  --svc-grid-gap: rgba(27, 138, 143, 0.10);
+  --btn-sec-bg: rgba(27, 138, 143, 0.06);
+  --btn-sec-bg-hover: rgba(27, 138, 143, 0.14);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: var(--transition);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--teal);
+  border-radius: 10px;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 3000;
+  background: var(--card-bg);
+  border: 1px solid rgba(27, 138, 143, 0.35);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 8px 32px var(--shadow);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.toast-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(27, 138, 143, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--teal-light);
+}
+
+.toast-text {
+  font-size: 14px;
+  color: var(--title-color);
+  font-weight: 500;
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
