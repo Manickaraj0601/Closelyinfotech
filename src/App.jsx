@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import FeedbackModal from './components/FeedbackModal';
 import Toast from './components/Toast';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [theme, setTheme] = useState('dark');
@@ -42,7 +41,6 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
       <Header 
         theme={theme} 
         toggleTheme={toggleTheme} 

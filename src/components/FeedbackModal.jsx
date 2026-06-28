@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FiX, FiCheck, FiSend } from 'react-icons/fi';
 import Logo from './Logo';
 import '../assets/css/FeedbackModal.css';
 
@@ -55,7 +56,9 @@ export default function FeedbackModal({ isOpen, onClose, onShowToast }) {
           <div className="modal-logo-container">
             <Logo width={110} height={50} />
           </div>
-          <button className="modal-close" onClick={onClose} aria-label="Close modal">&#x2715;</button>
+          <button className="modal-close flex items-center justify-center" onClick={onClose} aria-label="Close modal">
+            <FiX size={16} />
+          </button>
         </div>
         
         {!isSuccess ? (
@@ -72,6 +75,7 @@ export default function FeedbackModal({ isOpen, onClose, onShowToast }) {
                   id="fb-name" 
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  className=""
                 />
               </div>
               
@@ -83,6 +87,7 @@ export default function FeedbackModal({ isOpen, onClose, onShowToast }) {
                   id="fb-email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className=""
                 />
               </div>
             </div>
@@ -113,16 +118,17 @@ export default function FeedbackModal({ isOpen, onClose, onShowToast }) {
                 id="fb-msg"
                 value={msg}
                 onChange={(e) => setMsg(e.target.value)}
+                className=""
               ></textarea>
             </div>
             
-            <button type="submit" className="form-submit">
-              <i className="fas fa-paper-plane"></i>&nbsp; Submit Feedback
+            <button type="submit" className="form-submit flex items-center justify-center gap-2">
+              <FiSend /> Submit Feedback
             </button>
           </form>
         ) : (
           <div className="success-msg" id="fbSuccess">
-            <div className="check"><i className="fas fa-check"></i></div>
+            <div className="check flex items-center justify-center"><FiCheck size={20} /></div>
             <h3>Thank you!</h3>
             <p>Your feedback has been received. We truly appreciate it.</p>
           </div>

@@ -1,10 +1,11 @@
 import React from 'react';
+import { FiCheck } from 'react-icons/fi';
 
 export default function Toast({ message, isVisible }) {
   return (
     <div className={`toast ${isVisible ? 'show' : ''}`} id="toast">
       <div className="toast-icon">
-        <i className="fas fa-check"></i>
+        <FiCheck />
       </div>
       <div className="toast-text">{message}</div>
     </div>
