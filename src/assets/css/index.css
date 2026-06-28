@@ -11,6 +11,8 @@
   --color-theme-footer-bg: var(--footer-bg);
   --color-theme-text: var(--text-main);
   --color-theme-muted: var(--text-muted);
+  --color-theme-card-bg-sec: var(--card-bg2);
+  --color-theme-border-sec: var(--border2);
   
   --font-sans: 'Poppins', 'Inter', sans-serif;
   
@@ -86,7 +88,7 @@
   --border: rgba(27, 138, 143, 0.15); /* Teal border */
   --border2: rgba(27, 138, 143, 0.3);
   --card-bg: rgba(255, 255, 255, 0.85);
-  --card-bg2: rgba(240, 246, 246, 0.65);
+  --card-bg2: #FFFFFF;
   --nav-bg: rgba(248, 250, 252, 0.8);
   --mob-bg: rgba(248, 250, 252, 0.98);
   --input-bg: rgba(27, 138, 143, 0.05);
@@ -159,5 +161,40 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover);
+}
+
+/* Contact Form Inputs & Dropdown styling */
+.form-input {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  background-color: var(--card-bg2);
+  border: 1px solid var(--border2);
+  color: var(--text-main);
+  font-size: 0.75rem;
+  transition: border-color 0.25s, background-color 0.25s;
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  .form-input {
+    font-size: 0.875rem;
+  }
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  background-color: var(--card-bg2);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+/* Fix dropdown options dark theme backdrop */
+select.form-input option {
+  background-color: var(--bg2);
+  color: var(--text-main);
 }
 

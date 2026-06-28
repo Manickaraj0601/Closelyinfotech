@@ -2,14 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  FiGlobe, FiSmartphone, FiLayers, FiCpu, FiCloud, FiSettings, 
-  FiPhone, FiMail, FiMapPin, FiGithub, FiLinkedin, FiTwitter, 
+import {
+  FiGlobe, FiSmartphone, FiLayers, FiCpu, FiCloud, FiSettings,
+  FiPhone, FiMail, FiMapPin, FiGithub, FiLinkedin, FiTwitter,
   FiArrowUp, FiSend, FiExternalLink, FiClock
 } from 'react-icons/fi';
-import { 
-  FaReact, FaNodeJs, FaServer, FaJs, FaHtml5, FaCss3Alt, 
-  FaGitAlt, FaWhatsapp 
+import {
+  FaReact, FaNodeJs, FaServer, FaJs, FaHtml5, FaCss3Alt,
+  FaGitAlt, FaWhatsapp
 } from 'react-icons/fa';
 import { DiMysql, DiMongodb } from 'react-icons/di';
 import { SiDotnet } from 'react-icons/si';
@@ -20,9 +20,10 @@ import TestimonialSlider from '../components/TestimonialSlider';
 import Logo from '../components/Logo';
 import logoImg from '../assets/image/C-logo.webp';
 import logoDarkImg from '../assets/image/C-logo-dark.webp';
-import logirouteImg from '../assets/image/logiroute_wms_concept.png';
+import logirouteImg from '../assets/image/logiroute.webp';
 import insurclaimImg from '../assets/image/insurclaim.webp';
 import fleettrackerImg from '../assets/image/fleettracker.webp';
+import crmImg from '../assets/image/crm.webp';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,26 +34,26 @@ function TechIllustration() {
       {/* Background glow bulbs */}
       <div className="absolute top-10 left-10 w-64 h-64 rounded-full bg-primary/10 dark:bg-primary/15 blur-3xl animate-pulse duration-[6s]" />
       <div className="absolute bottom-10 right-10 w-64 h-64 rounded-full bg-secondary/10 dark:bg-secondary/15 blur-3xl animate-pulse duration-[8s] delay-1000" />
-      
+
       {/* Interactive SVG illustration */}
-      <motion.svg 
-        viewBox="0 0 500 500" 
+      <motion.svg
+        viewBox="0 0 500 500"
         className="w-full h-full relative z-10"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Outer orbital rings */}
-        <motion.circle 
-          cx="250" cy="250" r="210" 
-          fill="none" stroke="currentColor" className="text-slate-350/10 dark:text-slate-700/20" 
+        <motion.circle
+          cx="250" cy="250" r="210"
+          fill="none" stroke="currentColor" className="text-slate-350/10 dark:text-slate-700/20"
           strokeWidth="1.5" strokeDasharray="5 15"
           animate={{ rotate: 360 }}
           transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
         />
-        <motion.circle 
-          cx="250" cy="250" r="160" 
-          fill="none" stroke="currentColor" className="text-primary/20 dark:text-primary/30" 
+        <motion.circle
+          cx="250" cy="250" r="160"
+          fill="none" stroke="currentColor" className="text-primary/20 dark:text-primary/30"
           strokeWidth="1.5" strokeDasharray="10 10"
           animate={{ rotate: -360 }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -60,23 +61,23 @@ function TechIllustration() {
 
         {/* Floating tech stack nodes */}
         {/* Core Node */}
-        <motion.g 
+        <motion.g
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           {/* Main platform box */}
           <rect x="175" y="195" width="150" height="110" rx="16" fill="none" />
-          
+
           {/* Brand Logo images (toggled by light/dark modes) centered in the platform box */}
           <image href={logoImg} x="190" y="222" width="120" height="56" className="light-logo" />
           <image href={logoDarkImg} x="190" y="222" width="120" height="56" className="dark-logo" />
-          
+
           <circle cx="295" cy="270" r="8" fill="var(--accent)" />
           <circle cx="295" cy="270" r="14" fill="none" stroke="var(--accent)" strokeWidth="1" className="animate-ping origin-center" />
         </motion.g>
 
         {/* Orbit Node 1: Web */}
-        <motion.g 
+        <motion.g
           animate={{ y: [-10, 10, -10] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         >
@@ -87,7 +88,7 @@ function TechIllustration() {
         </motion.g>
 
         {/* Orbit Node 2: Mobile */}
-        <motion.g 
+        <motion.g
           animate={{ y: [10, -10, 10] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
@@ -98,7 +99,7 @@ function TechIllustration() {
         </motion.g>
 
         {/* Orbit Node 3: Cloud & API */}
-        <motion.g 
+        <motion.g
           animate={{ y: [-5, 5, -5] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
         >
@@ -108,24 +109,24 @@ function TechIllustration() {
         </motion.g>
 
         {/* Connections and sparks */}
-        <motion.path 
-          d="M130 150 Q 180 180 200 210" 
+        <motion.path
+          d="M130 150 Q 180 180 200 210"
           fill="none" stroke="url(#lineGradient1)" strokeWidth="2"
           strokeDasharray="100"
           strokeDashoffset="0"
           animate={{ strokeDashoffset: [200, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
         />
-        <motion.path 
-          d="M370 160 Q 320 180 300 210" 
+        <motion.path
+          d="M370 160 Q 320 180 300 210"
           fill="none" stroke="url(#lineGradient2)" strokeWidth="2"
           strokeDasharray="100"
           strokeDashoffset="0"
           animate={{ strokeDashoffset: [-200, 0] }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         />
-        <motion.path 
-          d="M250 108 L 250 195" 
+        <motion.path
+          d="M250 108 L 250 195"
           fill="none" stroke="var(--accent)" strokeWidth="2.5" opacity="0.3"
           strokeDasharray="6 6"
         />
@@ -164,39 +165,99 @@ function TechIllustration() {
   );
 }
 
+// Interactive 3D Tilt Service Card Component
+function ServiceCard({ svc, idx }) {
+  const cardRef = useRef(null);
+  const [rotateX, setRotateX] = useState(0);
+  const [rotateY, setRotateY] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+
+    // Position of cursor relative to card center
+    const mouseX = e.clientX - rect.left - width / 2;
+    const mouseY = e.clientY - rect.top - height / 2;
+
+    // Max rotation in degrees
+    const maxRotation = 10;
+    const rX = -(mouseY / (height / 2)) * maxRotation;
+    const rY = (mouseX / (width / 2)) * maxRotation;
+
+    setRotateX(rX);
+    setRotateY(rY);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setRotateX(0);
+    setRotateY(0);
+  };
+
+  // Combine 3D rotation with required translateY(-12px) and scale(1.03)
+  const transformStyle = isHovered
+    ? `perspective(1000px) translateY(-12px) scale(1.03) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+    : 'perspective(1000px) translateY(0px) scale(1) rotateX(0deg) rotateY(0deg)';
+
+  // Transition style: snappy under the cursor, smooth on exit/entry
+  const transitionStyle = isHovered
+    ? 'transform 0.1s ease-out, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+    : 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+
+  // Shadow style: smooth, dynamic shadow expansion during hover
+  const shadowStyle = isHovered
+    ? '0 20px 40px rgba(0, 0, 0, 0.08)'
+    : '';
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5, delay: idx * 0.1 }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: transformStyle,
+        transition: transitionStyle,
+        boxShadow: shadowStyle,
+        transformStyle: 'preserve-3d',
+      }}
+      className={`glass-panel p-8 rounded-2xl border border-slate-200 dark:border-slate-800/40 flex flex-col justify-between cursor-pointer duration-300 transition-colors ${isHovered
+        ? 'border-primary/50 bg-slate-50 dark:bg-slate-800/40 shadow-2xl shadow-slate-900/10 dark:shadow-black/40'
+        : 'bg-white/40 dark:bg-slate-900/15'
+        }`}
+    >
+      <div style={{ transform: 'translateZ(30px)', transformStyle: 'preserve-3d' }}>
+        {/* Icon wrapper */}
+        <div className="w-12 h-12 rounded-xl bg-slate-800/10 dark:bg-slate-800/80 flex items-center justify-center mb-6 transition-transform duration-300 hover:scale-110">
+          {svc.icon}
+        </div>
+        <h3 className="text-xl font-bold text-theme-text mb-4">{svc.title}</h3>
+        <p className="text-sm text-theme-muted leading-relaxed">{svc.desc}</p>
+      </div>
+      <div
+        style={{ transform: 'translateZ(15px)' }}
+        className="mt-8 text-xs font-semibold text-primary flex items-center gap-1 hover:gap-2 transition-all duration-300"
+      >
+        Learn More &rarr;
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Home({ onOpenFeedback, onShowToast }) {
-  // Sticky Scroll Portfolio state
-  const [activeProject, setActiveProject] = useState(0);
-  const projectRefs = useRef([]);
 
-  // Bounding rect scroll listener for tracking closest active project card to center screen
-  useEffect(() => {
-    const handleScroll = () => {
-      const viewportCenter = window.innerHeight / 2;
-      let closestIndex = 0;
-      let minDistance = Infinity;
-
-      projectRefs.current.forEach((ref, idx) => {
-        if (!ref) return;
-        const rect = ref.getBoundingClientRect();
-        const elementCenter = rect.top + rect.height / 2;
-        const distance = Math.abs(viewportCenter - elementCenter);
-        
-        if (distance < minDistance) {
-          minDistance = distance;
-          closestIndex = idx;
-        }
-      });
-
-      setActiveProject(closestIndex);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // Run initial positioning
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Contact form state
   const [name, setName] = useState('');
@@ -274,10 +335,10 @@ export default function Home({ onOpenFeedback, onShowToast }) {
 
     setIsContactSuccess(true);
     const body = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0A%0A${msg}`;
-    
+
     setTimeout(() => {
       window.location.href = `mailto:closelyinfotech@gmail.com?subject=Project Inquiry from ${name}&body=${body}`;
-      
+
       // Reset form states
       setName('');
       setEmail('');
@@ -295,7 +356,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
       const offset = 80;
       const elementPosition = target.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
-      
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -379,6 +440,14 @@ export default function Home({ onOpenFeedback, onShowToast }) {
       techs: ["React Native", "Express.js", "PostgreSQL", "Google Maps API"],
       demo: "#",
       github: "#"
+    },
+    {
+      name: "Closely CRM",
+      desc: "A customer relationship management platform designed for lead funnels tracking, client analytics telemetry, and automated contact management.",
+      image: crmImg,
+      techs: ["React", "Node.js", "Express.js", "PostgreSQL"],
+      demo: "#",
+      github: "#"
     }
   ];
 
@@ -388,20 +457,20 @@ export default function Home({ onOpenFeedback, onShowToast }) {
       <ParticlesBg />
 
       {/* 2. HERO SECTION */}
-      <section 
-        id="home" 
+      <section
+        id="home"
         className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-6 sm:px-8 overflow-hidden z-10"
       >
         {/* Radial mesh background glows */}
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/5 dark:bg-primary/10 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] rounded-full bg-secondary/5 dark:bg-secondary/8 blur-[130px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Text */}
           <div className="lg:col-span-7 text-left flex flex-col justify-center">
             {/* Header Tag */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -418,7 +487,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
             </h1>
 
             {/* Subtitle */}
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -452,14 +521,14 @@ export default function Home({ onOpenFeedback, onShowToast }) {
 
           {/* About grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
-            
+
             {/* Left Column: Intro */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-theme-text">Engineering Digital Transformation</h3>
               <p className="text-theme-muted leading-relaxed">
                 Great software goes beyond just coding. We deep-dive into your operational logics, target workloads, and market objectives. Our collaborative approach ensures that we engineer future-proof architectures built specifically for your scalability.
               </p>
-              
+
               <div className="space-y-4 pt-4">
                 <div className="flex gap-4">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
@@ -509,7 +578,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
           {/* Timeline of Company Growth */}
           <div className="mt-20">
             <h3 className="text-2xl font-bold text-center text-theme-text mb-12">Our Journey Roadmap</h3>
-            
+
             <div ref={timelineRef} className="relative max-w-3xl mx-auto">
               {/* Center Line */}
               <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 origin-top timeline-line" />
@@ -519,7 +588,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
                 <div className="hidden md:block w-[45%]" />
                 {/* Node Dot */}
                 <div className="absolute left-[13px] md:left-1/2 md:-ml-[8px] w-4 h-4 rounded-full bg-primary border-4 border-slate-900 z-10" />
-                
+
                 <div className="glass-panel ml-10 md:ml-0 w-[85%] md:w-[45%] p-6 rounded-xl border border-slate-700/40 text-left">
                   <span className="text-xs font-bold text-primary">2024</span>
                   <h4 className="font-bold text-theme-text mt-1">Foundation In Coimbatore</h4>
@@ -532,7 +601,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
                 <div className="hidden md:block w-[45%]" />
                 {/* Node Dot */}
                 <div className="absolute left-[13px] md:left-1/2 md:-ml-[8px] w-4 h-4 rounded-full bg-secondary border-4 border-slate-900 z-10" />
-                
+
                 <div className="glass-panel ml-10 md:ml-0 w-[85%] md:w-[45%] p-6 rounded-xl border border-slate-700/40 text-left">
                   <span className="text-xs font-bold text-secondary">2025</span>
                   <h4 className="font-bold text-theme-text mt-1">Expanding to Insurtech</h4>
@@ -545,7 +614,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
                 <div className="hidden md:block w-[45%]" />
                 {/* Node Dot */}
                 <div className="absolute left-[13px] md:left-1/2 md:-ml-[8px] w-4 h-4 rounded-full bg-accent border-4 border-slate-900 z-10" />
-                
+
                 <div className="glass-panel ml-10 md:ml-0 w-[85%] md:w-[45%] p-6 rounded-xl border border-slate-700/40 text-left">
                   <span className="text-xs font-bold text-accent">2026 (Present)</span>
                   <h4 className="font-bold text-theme-text mt-1">Global Scale & Custom Mobile Systems</h4>
@@ -574,26 +643,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((svc, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`glass-panel p-8 rounded-2xl border border-slate-700/30 flex flex-col justify-between hover:scale-[1.03] duration-300 transition-all ${svc.colorClass}`}
-              >
-                <div>
-                  {/* Icon wrapper */}
-                  <div className="w-12 h-12 rounded-xl bg-slate-800/10 dark:bg-slate-800/80 flex items-center justify-center mb-6">
-                    {svc.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-theme-text mb-4">{svc.title}</h3>
-                  <p className="text-sm text-theme-muted leading-relaxed">{svc.desc}</p>
-                </div>
-                <div className="mt-8 text-xs font-semibold text-primary">
-                  Learn More &rarr;
-                </div>
-              </motion.div>
+              <ServiceCard key={idx} svc={svc} idx={idx} />
             ))}
           </div>
         </div>
@@ -607,7 +657,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
         </div>
 
         {/* Marquee Container */}
-        <div className="relative w-full flex overflow-x-hidden border-y border-slate-200/80 dark:border-slate-800/40 py-7 bg-slate-50/40 dark:bg-slate-900/15 backdrop-blur-sm">
+        <div className=" flex ">
           {/* Side gradient overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-theme-bg to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-theme-bg to-transparent z-10 pointer-events-none" />
@@ -615,9 +665,9 @@ export default function Home({ onOpenFeedback, onShowToast }) {
           {/* Marquee Track (Double content inside one track for seamless looping) */}
           <div className="flex gap-12 animate-marquee whitespace-nowrap">
             {[...technologies, ...technologies].map((tech, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center gap-3 bg-white/80 dark:bg-slate-800/20 border border-slate-200 dark:border-slate-700/30 px-6 py-2.5 rounded-full hover:scale-105 hover:border-primary/40 hover:shadow-md transition-all duration-200 shadow-sm"
+              <div
+                key={idx}
+                className="flex items-center gap-3 bg-theme-card-bg-sec px-6 py-2.5 rounded-full hover:scale-105 hover:shadow-md transition-all duration-200 shadow-sm"
               >
                 {tech.icon}
                 <span className="text-sm font-semibold text-theme-text">{tech.name}</span>
@@ -628,10 +678,10 @@ export default function Home({ onOpenFeedback, onShowToast }) {
       </section>
 
       {/* 6. PORTFOLIO SECTION */}
-      <section id="portfolio" className="py-24 px-6 sm:px-8 relative z-10 bg-theme-bg border-t border-slate-200 dark:border-slate-800/40">
+      <section id="portfolio" className="py-24 px-6 sm:px-8 relative z-10 bg-theme-bg  border-slate-200 dark:border-slate-800/40">
         <div className="max-w-7xl mx-auto">
           {/* Title */}
-          <div className="text-center max-w-2xl mx-auto mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-6">
             <div className="text-primary font-bold text-xs uppercase tracking-widest mb-3">Case Studies</div>
             <h2 className="text-3xl sm:text-4xl font-bold text-theme-text mb-4">Featured Work</h2>
             <div className="h-1.5 w-16 bg-primary mx-auto rounded-full" />
@@ -640,114 +690,94 @@ export default function Home({ onOpenFeedback, onShowToast }) {
             </p>
           </div>
 
-          {/* Sticky Scroll Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
-            
-            {/* Left Column: Scrolling Content */}
-            <div className="lg:col-span-6 space-y-[35vh] pb-[20vh] pt-[5vh]">
-              {portfolio.map((proj, idx) => (
+          {/* Rummy Stacking Portfolio Cards Layout */}
+          <div className="relative max-w-4xl mx-auto space-y-16 py-12">
+            {portfolio.map((proj, idx) => {
+              // Rotation and scaling offsets for a fanned rummy card effect
+              const rotationAngle = (idx - 1.5) * 1.8; // Fans cards slightly: -2.7, -0.9, 0.9, 2.7 degrees
+              const topOffset = 130 + idx * 24; // Stacked card offset
+
+              return (
                 <div
                   key={idx}
-                  ref={(el) => (projectRefs.current[idx] = el)}
-                  data-index={idx}
-                  className={`transition-all duration-500 flex flex-col justify-center min-h-[55vh] ${
-                    activeProject === idx ? 'opacity-100 translate-x-3 scale-[1.01]' : 'opacity-20 translate-x-0 scale-100'
-                  }`}
+                  className="sticky w-full"
+                  style={{
+                    top: `${topOffset}px`,
+                    zIndex: idx + 1
+                  }}
                 >
-                  <span className="text-xs font-bold text-primary uppercase tracking-wider mb-2">Project 0{idx + 1}</span>
-                  <h3 className={`text-4xl font-extrabold mb-4 transition-colors duration-300 ${
-                    activeProject === idx ? 'text-primary' : 'text-theme-text'
-                  }`}>
-                    {proj.name}
-                  </h3>
-                  
-                  {/* Mobile-Only Image Layout */}
-                  <div className="block lg:hidden w-full aspect-video rounded-xl overflow-hidden border border-slate-355 dark:border-slate-700/50 my-6 shadow-lg">
-                    <img 
-                      src={proj.image} 
-                      alt={proj.name} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  <p className="text-base text-theme-muted leading-relaxed mb-6">
-                    {proj.desc}
-                  </p>
-                  
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {proj.techs.map((t, tIdx) => (
-                      <span 
-                        key={tIdx} 
-                        className="text-xs px-3 py-1.5 rounded-lg bg-slate-800/5 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/35 text-theme-text font-medium"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex items-center gap-4">
-                    <a 
-                      href={proj.demo} 
-                      className="text-sm px-5 py-2.5 rounded-xl bg-primary hover:opacity-90 text-white font-semibold flex items-center gap-1.5 transition-all shadow-md shadow-primary/10"
-                    >
-                      <FiExternalLink size={14} /> Live Demo
-                    </a>
-                    <a 
-                      href={proj.github} 
-                      className="text-sm px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100/40 dark:bg-slate-800/20 text-theme-text hover:bg-slate-200 dark:hover:bg-slate-700/40 flex items-center gap-1.5 transition-all"
-                    >
-                      <FiGithub size={14} /> GitHub
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Right Column: Sticky Image Wrapper */}
-            <div className="hidden lg:block lg:col-span-6 lg:sticky lg:top-[140px] lg:h-[65vh] flex items-center justify-center self-start">
-              <div className="w-full h-full relative rounded-2xl overflow-hidden glass-panel border border-slate-200 dark:border-slate-800/40 shadow-2xl bg-slate-100/30 dark:bg-slate-900/10 backdrop-blur-md">
-                {/* Background soft glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-secondary/5 z-0" />
-                
-                {/* Vertical Sliding Viewport */}
-                <div className="w-full h-full overflow-hidden relative z-10">
-                  <div 
-                    className="w-full h-full flex flex-col transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                    style={{ transform: `translateY(-${activeProject * 100}%)` }}
+                  <motion.div
+                    initial={{ opacity: 0, y: 100, rotate: rotationAngle }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, margin: "-100px" }}
+                    transition={{ type: "spring", stiffness: 90, damping: 14 }}
+                    whileHover={{
+                      scale: 1.03,
+                      rotate: 0,
+                      y: -12,
+                      zIndex: 100,
+                      transition: { duration: 0.25, ease: "easeOut" }
+                    }}
+                    className="glass-panel p-8 rounded-3xl border border-slate-200 dark:border-slate-800/40 flex flex-col md:flex-row gap-8 items-center justify-between shadow-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-shadow duration-300 hover:shadow-[0_20px_50px_rgba(27,138,143,0.2)] cursor-pointer"
                   >
-                    {portfolio.map((proj, idx) => (
-                      <div
-                        key={idx}
-                        className="w-full h-full flex-shrink-0 p-8 flex flex-col justify-center items-center relative"
-                      >
-                        {/* Modern Image Container with Shadow */}
-                        <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl border border-slate-300/30 dark:border-slate-700/30 relative">
-                          <img 
-                            src={proj.image} 
-                            alt={proj.name} 
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                        </div>
+                    <div className="flex-1 text-left">
+                      {/* Eyebrow */}
+                      <span className="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">
+                        Project 0{idx + 1}
+                      </span>
 
-                        {/* Floating Info card (overlay style) */}
-                        <div className="absolute bottom-12 right-12 z-20 bg-slate-900/80 dark:bg-slate-900/90 backdrop-blur-md border border-slate-700/50 px-4 py-2.5 rounded-xl text-white text-xs font-semibold flex items-center gap-2 shadow-xl">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                          <span>Active Production Deployment</span>
-                        </div>
+                      {/* Title */}
+                      <h3 className="text-2xl sm:text-3xl font-extrabold mb-4 text-theme-text hover:text-primary transition-colors">
+                        {proj.name}
+                      </h3>
 
-                        <div className="absolute top-12 left-12 z-20 bg-primary/95 backdrop-blur-sm px-3.5 py-1.5 rounded-full text-white text-xs font-bold shadow-lg tracking-wider">
-                          CASE STUDY 0{idx + 1}
-                        </div>
+                      {/* Description */}
+                      <p className="text-sm text-theme-muted leading-relaxed mb-6">
+                        {proj.desc}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {proj.techs.map((t, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/50 text-slate-700 dark:text-slate-200 font-semibold shadow-sm"
+                          >
+                            {t}
+                          </span>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
 
+                      {/* Buttons */}
+                      <div className="flex items-center gap-4">
+                        <a
+                          href={proj.demo}
+                          className="text-xs px-5 py-2.5 rounded-xl bg-primary hover:opacity-90 text-white font-semibold flex items-center gap-1.5 transition-all shadow-md shadow-primary/15 hover:scale-105 active:scale-95"
+                        >
+                          <FiExternalLink size={12} /> Live Demo
+                        </a>
+                        <a
+                          href={proj.github}
+                          className="text-xs px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-100/40 dark:bg-slate-800/20 text-theme-text hover:bg-slate-200 dark:hover:bg-slate-700/40 flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+                        >
+                          <FiGithub size={12} /> GitHub
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Image Area - full square view on right */}
+                    <div className="w-full md:w-64 aspect-square rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800/50 shadow-inner bg-slate-900/5 dark:bg-slate-950/20 relative group shrink-0">
+                      <img
+                        src={proj.image}
+                        alt={proj.name}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -807,7 +837,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <div className="text-primary font-bold text-xs uppercase tracking-widest mb-2">Enquiries</div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-3">Let's Build Together</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-theme-text mb-3">Let's Build Together</h2>
             <div className="h-1 w-12 bg-primary mx-auto rounded-full mb-4" />
             <p className="text-xs sm:text-sm text-theme-muted max-w-md mx-auto leading-relaxed">
               Have a project in mind? Fill out the form or reach out directly. We usually respond in under 2 hours.
@@ -894,10 +924,10 @@ export default function Home({ onOpenFeedback, onShowToast }) {
 
               <div className="space-y-4 pt-4 border-t border-slate-200/50 dark:border-slate-800/60">
                 {/* WhatsApp button */}
-                <a 
-                  href="https://wa.me/919876543210" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://wa.me/919876543210"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition-colors shadow-md shadow-emerald-600/15"
                 >
                   <FaWhatsapp size={14} /> Chat on WhatsApp
@@ -928,47 +958,47 @@ export default function Home({ onOpenFeedback, onShowToast }) {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
                       <label className="text-[10px] text-theme-muted font-bold uppercase tracking-wider" htmlFor="c-name">Full Name *</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         id="c-name"
-                        placeholder="Your name" 
+                        placeholder="Your name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 bg-white/40 dark:bg-slate-900/30 text-theme-text text-xs sm:text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="form-input"
                       />
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-[10px] text-theme-muted font-bold uppercase tracking-wider" htmlFor="c-phone">Phone Number</label>
-                      <input 
-                        type="tel" 
+                      <input
+                        type="tel"
                         id="c-phone"
-                        placeholder="+91 XXXXX XXXXX" 
+                        placeholder="+91 XXXXX XXXXX"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 bg-white/40 dark:bg-slate-900/30 text-theme-text text-xs sm:text-sm focus:outline-none focus:border-primary transition-colors"
+                        className="form-input"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
                     <label className="text-[10px] text-theme-muted font-bold uppercase tracking-wider" htmlFor="c-email">Email Address *</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       id="c-email"
-                      placeholder="your@email.com" 
+                      placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 bg-white/40 dark:bg-slate-900/30 text-theme-text text-xs sm:text-sm focus:outline-none focus:border-primary transition-colors"
+                      className="form-input"
                     />
                   </div>
 
                   <div className="space-y-1.5">
                     <label className="text-[10px] text-theme-muted font-bold uppercase tracking-wider" htmlFor="c-service">Service Interested In</label>
-                    <select 
+                    <select
                       id="c-service"
                       value={service}
                       onChange={(e) => setService(e.target.value)}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-slate-900 text-theme-text text-xs sm:text-sm focus:outline-none focus:border-primary transition-colors"
+                      className="form-input"
                     >
                       <option value="">Select a service...</option>
                       <option>Web Development</option>
@@ -983,18 +1013,18 @@ export default function Home({ onOpenFeedback, onShowToast }) {
 
                   <div className="space-y-1.5">
                     <label className="text-[10px] text-theme-muted font-bold uppercase tracking-wider" htmlFor="c-msg">Message *</label>
-                    <textarea 
+                    <textarea
                       id="c-msg"
-                      placeholder="Tell us about your project..." 
+                      placeholder="Tell us about your project..."
                       rows={3}
                       value={msg}
                       onChange={(e) => setMsg(e.target.value)}
-                      className="w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700/50 bg-white/40 dark:bg-slate-900/30 text-theme-text text-xs sm:text-sm focus:outline-none focus:border-primary transition-colors"
+                      className="form-input"
                     ></textarea>
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     className="w-full py-3 rounded-lg bg-primary hover:opacity-90 text-white font-semibold text-xs sm:text-sm transition-all hover:scale-[1.01] active:scale-[0.99] duration-300 flex items-center justify-center gap-1.5 shadow-lg shadow-primary/15"
                   >
                     <FiSend /> Send Message
@@ -1021,11 +1051,11 @@ export default function Home({ onOpenFeedback, onShowToast }) {
       <footer className="bg-theme-footer-bg border-t border-slate-800/40 relative z-10 py-16 px-6 sm:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
-            
+
             {/* Column 1: Info */}
             <div className="md:col-span-5 space-y-4">
-              <div 
-                className="flex items-center logo-container-wrap mb-4" 
+              <div
+                className="flex items-center logo-container-wrap mb-4"
                 onClick={() => scrollToSection('home')}
               >
                 <Logo width={130} height={60} />
@@ -1033,7 +1063,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
               <p className="text-sm text-theme-muted leading-relaxed max-w-sm">
                 Transforming Ideas into Digital Experiences with innovative technology solutions.
               </p>
-              
+
               {/* Social Icons */}
               <div className="flex gap-4 pt-2">
                 <a href="#" className="p-2.5 rounded-full bg-slate-800/10 border border-slate-700/50 text-theme-text hover:text-primary transition-all">
@@ -1054,7 +1084,7 @@ export default function Home({ onOpenFeedback, onShowToast }) {
               <ul className="space-y-2">
                 {['Home', 'About', 'Services', 'Technologies', 'Portfolio', 'Contact'].map((sect) => (
                   <li key={sect}>
-                    <a 
+                    <a
                       href={`#${sect.toLowerCase()}`}
                       onClick={(e) => { e.preventDefault(); scrollToSection(sect.toLowerCase()); }}
                       className="text-sm text-theme-muted hover:text-primary transition-colors"
@@ -1072,8 +1102,8 @@ export default function Home({ onOpenFeedback, onShowToast }) {
               <ul className="space-y-2">
                 {services.map((svc, idx) => (
                   <li key={idx}>
-                    <a 
-                      href="#services" 
+                    <a
+                      href="#services"
                       onClick={(e) => { e.preventDefault(); scrollToSection('services'); }}
                       className="text-sm text-theme-muted hover:text-primary transition-colors"
                     >
